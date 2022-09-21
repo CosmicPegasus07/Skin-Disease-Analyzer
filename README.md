@@ -1,2 +1,3 @@
 # Skin-Disease-Analyzer
-It analyzes for skin diseases.
+It analyzes pictures to detect for skin diseases.
+
