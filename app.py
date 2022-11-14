@@ -11,7 +11,7 @@ import cv2
 
 app = Flask(__name__)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-model = load_model(os.path.join(BASE_DIR , 'vgg19byzeeza.h5'))
+model = load_model(os.path.join(BASE_DIR , 'Models/vgg19byzeeza.h5'))
 
 ALLOWED_EXT = set(['jpg' , 'jpeg' , 'png' , 'jfif'])
 def allowed_file(filename):
@@ -22,7 +22,7 @@ def predict(filename , model):
     classes = ['Acne','Actnic Cheilitis','Basal Cell Carcinoma','Eczema Photos','Hair Disease','Nail Fungal','Psoriasis Hair','Rosacea',' Scabies',' Seborrheic Keratoses','Skin Cancer','Tinea Ringworm Candidiasis','Warts Molluscum']
     img = cv2.resize(cv2.imread(filename), (32,32)) / 255.0
     prediction = model.predict(img.reshape(1,32,32,3))
-    return classes[np.argmax(prediction) - 1]
+    return classes[np.argmax(prediction)]
 
 @app.route('/')
 def home():
