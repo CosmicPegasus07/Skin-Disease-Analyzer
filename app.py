@@ -45,8 +45,6 @@ def success():
                 img = file.filename
 
                 class_result = predict(img_path , model)
-
-
             else:
                 error = "Please upload images of jpg , jpeg and png extension only"
 
