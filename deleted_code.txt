@@ -1,0 +1,58 @@
+
+     <!-- update section start -->
+     
+<div class="update_section">
+      <div class="container">
+         <h1 class="update_taital">Feedback </h1>         
+         <form>        
+            
+            <table border="1" width="40%" height="400px" align="center" bgcolor="white">
+                      
+            <!---row1--->
+            <tr>
+            <th><font color="#9a7e6a"><label>Name</label></th>
+            <th><input type="text"></th>
+            </tr>            
+            
+            <!---row2--->
+            <tr >
+            <th><font color="#9a7e6a"><label>Email</label></th>
+            <th><input type="email"></th>
+            </tr>
+            
+            <!---row3--->
+            <tr >
+            <th><font color="#9a7e6a"><label>Please share your<br>feedback in detail</label></th>
+            <th><textarea name="address" rows="3" cols="25"></textarea>
+            </th>
+            </tr>          
+            
+            
+            <!---row4--->
+            <tr align="center" bgcolor="#9a7e6a">
+            <th colspan="2"><input type="Submit">
+            <input type="reset">
+            </th>
+            </tr>
+            
+            </table>
+            </form>  
+
+         
+      </div>
+     </div>
+
+        <!-- update section end -->
+
+
+             <!-- footer section start -->
+     <div class="footer_section layout_padding">
+      <div class="container">
+         <div class="footer_section_2">
+            <div class="row">     
+            </div>
+              
+         </div>
+      </div>
+   </div>
+   <!-- footer section end -->
