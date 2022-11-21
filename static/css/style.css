@@ -161,6 +161,15 @@ img {
     outline: 0;
 }
 
+table{
+    width: -webkit-fill-available;
+}
+
+th{
+    padding: 40px;
+}
+
+
 .paddind_bottom_0 {
     padding-bottom: 0 !important;
 }
