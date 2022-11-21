@@ -24,31 +24,91 @@
                <li><a href="#research">RESEARCH</a></li>
                <li><a href="#about">CHECK</a></li>
             </ul>
-        </nav>
-        <main class="my">
-            <div class="container">
+        </nav> <br>
+        <main class="my" id="my">
+            <div class="container" id="cont">
               <!--Section: Content-->
               <section class="text-center">
-                <h4 class="mb"><strong>Results</strong></h4>
+                <h4 class="mb" style="color:#9a7e6a" id="res" style="color:#9a7e6a; font-size: larger;font-weight: bold;"><strong>Results</strong></h4>
                 <div class="mb">
                 <div class="card">
                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src={{url_for('static', filename = 'uploads/'+ img)}} class="img-fluid" />
+                    <img src={{url_for('static', filename = 'uploads/'+ img)}} class="img-fluid" id="imgdis" height="500" width="500"/>
                     <a href="#!">
                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                     </a>
                     </div>
                     <div class="card-body">
-                    <h5 class="card-title">Post title</h5>
-                    <p class="card-text">
+                    <p class="card-text" id="card" style="color:#9a7e6a; font-size: larger;font-weight: bold;">
                         {{ class_result }}
                     </p>
-                    <a href="/check" class="btn btn-primary">Go Again</a>
-                    </div>
+                    <a href="/check" class="btn btn-primary"  id="goa" style="background-color: #9a7e6a; color: whitesmoke;">Go Again</a>
+                    
+                    <button onclick="re()" class="btn btn-primary" id="reo" style="background-color: #9a7e6a; color: whitesmoke;">Remedies</button>
+                   
+            <div class="remedies-content" id="remedies-content">
+                <h1 id="disease-name">REMEDIES</h1>
+                <div class="dos">
+                    <li> DO'S
+                        <ol id="do1"></ol>
+                        <ol id="do2"></ol>
+                        <ol id="do3"></ol>
+                    </li>
                 </div>
+                <div class="donts">
+                    <li> DON'TS
+                        <ol id="don1"></ol>
+                        <ol id="don2"></ol>
+                        <ol id="don3"></ol>
+                    </li>
+                </div>
+                <div class="products">
+                    <li> PRODUCT'S
+                        <ol id="p1"><a class="first"></a></ol>
+                        <ol id="p2"><a class="second"></a></ol>
+                        <ol id="p3"><a class="third"></a></ol>
+                    </li>
+                </div>
+            </div>
+                </div> 
+                </div>
+
                 </section>
             </div>
         </main>
+        
+        <script>
+            function re(){
+                document.getElementById("imgdis").style.height="300px";
+                document.getElementById("imgdis").style.width="250px";
+                document.getElementById("res").innerHTML="MEDICAL REMEDIES";
+                document.getElementById("imgdis").style.marginLeft="1000px";
+                document.getElementById("my").style.position="relative";
+                document.getElementById("imgdis").style.paddingBottom="-2000px";
+                document.getElementById("remedies-content").style.paddingBottom="500px";
+                document.getElementById("card").style.marginLeft="-1000px";
+                document.getElementById("remedies-content").style.marginLeft="500px";
+                document.getElementById("remedies-content").style.marginTop="20px";
+                document.getElementById("card").style.fontSize="30px";
+                document.getElementById("res").style.fontSize="40px";
+                document.getElementById("goa").style.marginLeft="-930px";
+                document.getElementById("goa").style.marginLeft="-930px";
+                document.getElementById("imgdis").style.marginLeft="-1000px";
+                document.getElementById("reo").style.visibility="hidden";
+                let cl = JSON.parse(' {{ class_result | tojson }}')
+                if (cl == "Eczema Photos"){
+                    document.getElementById("do1").innerHTML="DO moisturize your skin daily.";
+                    document.getElementById("do2").innerHTML="DO exercise daily, but avoid excessive sunlight exposure.";
+                    document.getElementById("do3").innerHTML="DO avoid foods that cause your eczema to worsen.";
+                    document.getElementById("don1").innerHTML="DONT let your skin become too dry.";
+                    document.getElementById("don2").innerHTML="DONT drive, cook, or operate machinery.";
+                    document.getElementById("don3").innerHTML="";
+                    document.getElementById("p1").innerHTML="";
+                } else {
+                    alert("bye");
+                }
+            }
+        </script>
     </body>
 </html>
         

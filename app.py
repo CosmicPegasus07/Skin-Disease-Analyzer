@@ -32,6 +32,10 @@ def home():
 def check():
         return render_template("check.html")
 
+@app.route('/rem')
+def remedies():
+        return render_template("rem.html")
+
 @app.route('/success' , methods = ['GET' , 'POST'])
 def success():
     error = ''
@@ -81,6 +85,5 @@ def success():
 
     else:
         return render_template('index.html')
-
 if __name__ == "__main__":
     app.run(debug = True)
