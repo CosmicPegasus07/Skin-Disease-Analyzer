@@ -32,6 +32,10 @@ def home():
 def check():
         return render_template("check.html")
 
+@app.route('/rem')
+def remedies():
+        return render_template("rem.html")
+
 @app.route('/success' , methods = ['GET' , 'POST'])
 def success():
     error = ''
@@ -45,8 +49,6 @@ def success():
                 img = file.filename
 
                 class_result = predict(img_path , model)
-
-
             else:
                 error = "Please upload images of jpg , jpeg and png extension only"
 
@@ -57,6 +59,5 @@ def success():
 
     else:
         return render_template('index.html')
-
 if __name__ == "__main__":
     app.run(debug = True)

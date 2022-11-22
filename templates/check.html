@@ -37,12 +37,13 @@
            <li><a href="#about">CHECK</a></li>
         </ul>
      </nav>
+     <br><br><br><br>
      <!--upload section start -->
      <form method="post" action="/success" enctype="multipart/form-data">
       <div class="upload">
-         <input type="file" name="file" id = "image-input" autocomplete="off" required>
+         <input type="file" name="file" style="background-color: #9a7e6a; color: whitesmoke;" id = "image-input" autocomplete="off" required>
          <div id="display-image"></div>
-         <button class="read_bt">Result</button>
+         <button class="read_bt" style="background-color: #9a7e6a; color: whitesmoke;height: 50px;width: 150px;">Result</button>
       </div>
      </form>
     <script>
@@ -56,26 +57,4 @@
                     reader.readAsDataURL(this.files[0]);
                     });
     </script>
-     <!-- footer section start -->
-     <div class="footer_section layout_padding">
-        <div class="container">
-           <div class="footer_section_2">
-              <div class="row">     
-              </div>
-                
-           </div>
-        </div>
-     </div>
-     <!-- footer section end -->
-  
-         <!-- copyright section start -->
-         <div class="copyright_section">
-           <div class="container">
-              <div class="row">
-                 <div class="col-sm-12">
-                    <p class="copyright_text">© 2022 All Rights Reserved</p>
-                 </div>
-              </div>
-           </div>
-        </div>
-        <!-- copyright section end -->
+   
