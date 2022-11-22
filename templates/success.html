@@ -17,7 +17,7 @@
     <body>
         <nav>
             <div class="logo">
-               <a href="/index"><img src="static/images/logo.png"></a>
+               <a href="/"><img src="static/images/logo.png"></a>
             </div>
             <ul>
                <li><a href="facts/index.html">FACTS</a></li>
@@ -25,13 +25,14 @@
                <li><a href="#about">CHECK</a></li>
             </ul>
         </nav> <br>
-        <main class="my" id="my">
+        <main class="my" id="my" >
             <div class="container" id="cont">
               <!--Section: Content-->
-              <section class="text-center">
+              <section class="text-center"> <br>
                 <h4 class="mb" style="color:#9a7e6a" id="res" style="color:#9a7e6a; font-size: larger;font-weight: bold;"><strong>Results</strong></h4>
                 <div class="mb">
                 <div class="card">
+                    <br>
                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                     <img src={{url_for('static', filename = 'uploads/'+ img)}} class="img-fluid" id="imgdis" height="500" width="500"/>
                     <a href="#!">
@@ -45,28 +46,30 @@
                     <a href="/check" class="btn btn-primary"  id="goa" style="background-color: #9a7e6a; color: whitesmoke;">Go Again</a>
                     
                     <button onclick="re()" class="btn btn-primary" id="reo" style="background-color: #9a7e6a; color: whitesmoke;">Remedies</button>
-                   
+                   <br>
             <div class="remedies-content" id="remedies-content">
-                <h1 id="disease-name">REMEDIES</h1>
-                <div class="dos">
-                    <li> DO'S
-                        <ol id="do1"></ol>
-                        <ol id="do2"></ol>
-                        <ol id="do3"></ol>
+                <div class="dos" id="dos">
+                    <h3 id="do"></h3>
+                    <li id="doo"> 
+                        <li id="do1"></li>
+                        <li id="do2"></li>
+                        <li id="do3"></li>
                     </li>
-                </div>
-                <div class="donts">
-                    <li> DON'TS
-                        <ol id="don1"></ol>
-                        <ol id="don2"></ol>
-                        <ol id="don3"></ol>
+                </div> <br>
+                <div class="donts" id="donts">
+                    <h3 id="don"></h3>
+                    <li id="doon"> 
+                        <li id="don1"></li>
+                        <li id="don2"></li>
+                        <li id="don3"></li>
                     </li>
-                </div>
-                <div class="products">
-                    <li> PRODUCT'S
-                        <ol id="p1"><a class="first"></a></ol>
-                        <ol id="p2"><a class="second"></a></ol>
-                        <ol id="p3"><a class="third"></a></ol>
+                </div> <br>
+                <div class="products" id="products">
+                    <h3 id="p"></h3>
+                    <li id="po">
+                        <li id="po1"><a class="first" target="_blank" id="p1"></a></li>
+                        <li id="po2"><a class="second" target="_blank" id="p2"></a></li>
+                        <li id="po3"><a class="third" target="_blank" id="p3"></a></li>
                     </li>
                 </div>
             </div>
@@ -79,35 +82,221 @@
         
         <script>
             function re(){
-                document.getElementById("imgdis").style.height="300px";
-                document.getElementById("imgdis").style.width="250px";
+                document.getElementById("imgdis").style.height="200px";
+                document.getElementById("cont").style.backgroundColor="#9a7e6a";
+                document.getElementById("dos").style.backgroundColor="#9a7e6a";
+                document.getElementById("donts").style.backgroundColor="#9a7e6a";
+                document.getElementById("products").style.backgroundColor="#9a7e6a";
+                document.getElementById("dos").style.width="1300px";
+                document.getElementById("donts").style.width="1300px";
+                document.getElementById("products").style.width="1300px";
+                document.getElementById("dos").style.marginLeft="-520px";
+                document.getElementById("donts").style.marginLeft="-520px";
+                document.getElementById("products").style.marginLeft="-520px";
+                document.getElementById("imgdis").style.width="200px";
                 document.getElementById("res").innerHTML="MEDICAL REMEDIES";
-                document.getElementById("imgdis").style.marginLeft="1000px";
-                document.getElementById("my").style.position="relative";
-                document.getElementById("imgdis").style.paddingBottom="-2000px";
+                document.getElementById("do").innerHTML="DO'S";
+                document.getElementById("don").innerHTML="DON'TS";
+                document.getElementById("p").innerHTML="PRODUCT'S";
+                document.getElementById("do").style.color="#fff4ed";
+                document.getElementById("don").style.color="#fff4ed";
+                document.getElementById("p").style.color="#fff4ed";
+                document.getElementById("res").style.color="#fff4ed";
                 document.getElementById("remedies-content").style.paddingBottom="500px";
-                document.getElementById("card").style.marginLeft="-1000px";
                 document.getElementById("remedies-content").style.marginLeft="500px";
-                document.getElementById("remedies-content").style.marginTop="20px";
+                document.getElementById("remedies-content").style.marginTop="10px";
                 document.getElementById("card").style.fontSize="30px";
                 document.getElementById("res").style.fontSize="40px";
-                document.getElementById("goa").style.marginLeft="-930px";
-                document.getElementById("goa").style.marginLeft="-930px";
-                document.getElementById("imgdis").style.marginLeft="-1000px";
-                document.getElementById("reo").style.visibility="hidden";
+                const go = document.getElementById("goa")
+                const re = document.getElementById("reo")
+                go.remove();
+                re.remove();
                 let cl = JSON.parse(' {{ class_result | tojson }}')
                 if (cl == "Eczema Photos"){
-                    document.getElementById("do1").innerHTML="DO moisturize your skin daily.";
-                    document.getElementById("do2").innerHTML="DO exercise daily, but avoid excessive sunlight exposure.";
-                    document.getElementById("do3").innerHTML="DO avoid foods that cause your eczema to worsen.";
-                    document.getElementById("don1").innerHTML="DONT let your skin become too dry.";
-                    document.getElementById("don2").innerHTML="DONT drive, cook, or operate machinery.";
-                    document.getElementById("don3").innerHTML="";
-                    document.getElementById("p1").innerHTML="";
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO avoid triggers of the rash, including stress.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO moisturize your skin daily, even when you have no symptoms. Use an odor-free oil-based cream or ointment (not lotion), best applied just after bathing while skin is still damp. Use hypoallergenic products when possible. ";
+                    document.getElementById("do3").innerHTML="<strong>.</strong> DO take all pills prescribed by your health care provider. Don't stop taking the medicines unless your health care provider approves.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong> DON'T let your skin or home become too dry. A home humidifier may help.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong> DON'T drive, cook, or operate machinery while using antihistamines if they make you sleepy.";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T forget your daily skin regimen even if you feel well. Plan ahead for trips by saving some of your usual products.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> skin smoothing cream moisturiser";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Atorep Barrier Cream for Dry, Sensitive & Atopic Skin";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> CeraVe Healing Ointment - 3oz";
+                    document.getElementById("p1").href="https://dermalogica.in/products/skin-smoothing-cream-face-moisturiser?variant=39602574524493&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAw0voCD7gmCEGdZxvYhy7bcZygsLRjMpdn9leBGaxwXOKIUuoCydmIaAmU4EALw_wcB";
+                    document.getElementById("p2").href="https://www.reequil.com/products/atorep-barrier-cream-for-atopic-skin?variant=39260018704570&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_source=google-ads&utm_medium=prospecting&utm_campaign=performance-max&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAy4jkrchZo6azQSYYT10C9d8KcGNE2s2B2plS4VQs9Ee7Q1R0YmfvIaAlSREALw_wcB";
+                    document.getElementById("p3").href="https://www.target.com/p/cerave-healing-ointment-3oz/-/A-79368529?clkid=fbee3cdeN6a7711edaa00db821e97393b&lnm=81938&afid=New%20York%20Media&ref=tgt_adv_xasd0002";
+                } else if(cl == "Acne") {
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
+                } else if(cl == "Actnic Cheilitis"){
+                    document.getElementById("do1").innerHTML="<strong>.</strong> ";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
+                } else  if(cl == "Actinic Cheilitis"){
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
+                } else if(cl == "Actinic Cheilitis"){
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+
+                } else  if(cl == "Actinic Cheilitis") {
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
+                } else if(cl == "Actinic Cheilitis") {
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
+                } else if(cl == "Actinic Cheilitis") {
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
+                } else if(cl == "Actinic Cheilitis") {
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
+                } else if(cl == "Actinic Cheilitis") {
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
+                } else if(cl == "Actinic Cheilitis") {
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
+                } else if(cl == "Actinic Cheilitis") {
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
+                } else if(cl == "Actnic Cheilitis") {
+                    document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+                    document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+                    document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+                    document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+                    document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+                    document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+                    document.getElementById("p1").innerHTML="<strong>.</strong> Naturals Skin Potion Anti Acne Skincare Face Oil";
+                    document.getElementById("p2").innerHTML="<strong>.</strong> Acne Spot Corrector Gel";
+                    document.getElementById("p3").innerHTML="<strong>.</strong> ANTI-ACNE FACE MIST";
+                    document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+                    document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+                    document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+                
                 } else {
-                    alert("bye");
+                    alert("NO DISEASE FOUND");
                 }
-            }
+            } 
         </script>
     </body>
 </html>
