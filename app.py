@@ -25,6 +25,7 @@ def predict(filename , model):
     return classes[np.argmax(prediction)]
 
 @app.route('/')
+@app.route('/index')
 def home():
         return render_template("index.html")
 
