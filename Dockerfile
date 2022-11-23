@@ -9,8 +9,7 @@ COPY requirements.txt requirements.txt
 RUN python -m venv env
 RUN env/bin/pip install -r requirements.txt
 
-COPY  Examples Examples
-COPY  Models Models
+COPY  Models/vgg19byzeeza.h5 Models/vgg19byzeeza.h5
 COPY  static static
 COPY  templates templates
 COPY app.py boot.sh ./
