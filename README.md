@@ -18,7 +18,7 @@ Note: If on Windows use the `wsl` command in terminal to enter commands. The she
 
 >Step 4 - Create a writeable container layer over the specified image, and then start it.
 
-`$ docker run --name skin -d -p 8000:5000 --rm skint:latest`
+`$ docker run --name skin -d -p 8000:5000 --rm skin:latest`
 
 Visit http://localhost:8000 in your browser. The app should be up & running.
 
