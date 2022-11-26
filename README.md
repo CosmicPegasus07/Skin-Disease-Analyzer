@@ -30,15 +30,15 @@ Visit http://localhost:8000 in your browser. The app should be up & running.
 
 ### Home Page 
 
-![Home Page](/Screenshot/Home.png)
+![Home Page](Screenshots/Home.png)
 ### Selection Page
 
-![Selection Page](/Screenshot/Selection.png)
+![Selection Page](Screenshots/Selection.png)
 
 ### Results Page
 
-![Results Page](/Screenshot/Results.png)
+![Results Page](Screenshots/Results.png)
 
 ### Remedies Page
 
-![Remedies Page](/Screenshot/Remedies.png)
+![Remedies Page](Screenshots/Remedies.png)
