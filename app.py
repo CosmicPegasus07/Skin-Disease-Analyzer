@@ -33,9 +33,6 @@ def home():
 def check():
         return render_template("check.html")
 
-@app.route('/rem')
-def remedies():
-        return render_template("rem.html")
 
 @app.route('/success' , methods = ['GET' , 'POST'])
 def success():
