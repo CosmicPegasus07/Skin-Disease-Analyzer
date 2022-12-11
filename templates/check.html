@@ -23,36 +23,52 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
    </head>
-   <body>
-     
-      <!--header section start -->
-      
-      <nav>
-        <div class="logo">
-           <a href="/"><img src="static/images/logo.png" style="width: 78px;height: 78x;"></a>
-        </div>
-        <ul>
-           <li><a href="#">CHECK</a></li>
-        </ul>
-     </nav>
-     <br><br><br><br>
-     <!--upload section start -->
-     <form method="post" action="/success" enctype="multipart/form-data">
-      <div class="upload">
-         <input type="file" name="file" style="background-color: #9a7e6a; color: whitesmoke;" id = "image-input" autocomplete="off" required>
-         <div id="display-image"></div>
-         <button class="read_bt" style="background-color: #9a7e6a; color: whitesmoke;height: 50px;width: 150px;">Result</button>
+   <body> 
+    <!--header section start -->
+    <nav>
+      <div class="logo">
+        <a href="/"><img src="static/images/logo.png" style="width: 78px;height: 78x;"></a>
       </div>
-     </form>
+      <ul>
+        <li><a href="#">CHECK</a></li>
+      </ul>
+    </nav>
+    <br><br><br><br>
+    <!--upload section start -->
+    <form method="post" action="/success" enctype="multipart/form-data">
+     <div class="upload">
+        <input type="file" name="file" style="background-color: #9a7e6a; color: whitesmoke;" id = "image-input" autocomplete="off" required>
+        <div id="display-image"></div>
+        <button class="read_bt" style="background-color: #9a7e6a; color: whitesmoke;height: 50px;width: 150px;">Result</button>
+     </div>
+    </form>
+    <button id="start-camera">Start Camera</button>
+    <video id="video" width="320" height="240" autoplay></video>
+    <a id="download" download="new.png">
+    <button id="click-photo" onclick="download();">Click Photo</button></a>
+    <canvas id="canvas" width="320" height="240"></canvas>
     <script>
-     const image_input = document.querySelector("#image-input");
-     image_input.addEventListener("change", function() {
-          const reader = new FileReader();
-            reader.addEventListener("load", () => {
-                    const uploaded_image = reader.result;
-                    document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
-                  });
-                    reader.readAsDataURL(this.files[0]);
-                    });
+      let camera_button = document.querySelector("#start-camera");
+      let video = document.querySelector("#video");
+      let click_button = document.querySelector("#click-photo");
+      let canvas = document.querySelector("#canvas");
+
+      camera_button.addEventListener('click', async function() {
+          let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+          video.srcObject = stream;
+      });
+      function download(){
+        var download = document.getElementById("download");
+        var image = document.getElementById("canvas").toDataURL("image/png")
+                        .replace("image/jpg", "image/octet-stream");
+        download.setAttribute("href", image);
+        //download.setAttribute("download","archive.png");
+        }
+      
+      click_button.addEventListener('click', function() {
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+      });
     </script>
+   </body>
+</html>
    
