@@ -1,102 +1,194 @@
 <!DOCTYPE html>
 <html lang="eng">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href={{url_for('static' , filename = 'css/responsice.css')}}>
-        <link rel="stylesheet" href={{url_for('static' , filename = 'css/style.css')}}>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/ee8b6f0b6c.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-        <title>Results Page</title>
-    </head>
-    <body>
-        <nav>
-            <div class="logo">
-               <a href="/"><img src="static/images/logo.png" style="width: 78px;height: 78x;"></a>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href={{url_for('static' , filename='css/responsice.css' )}}>
+  <link rel="stylesheet" href={{url_for('static' , filename='css/style.css' )}}>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ee8b6f0b6c.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    crossorigin="anonymous" />
+  <title>Results Page</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg" style="height: fit-content; background-color: #6f1ad0; width: 100%;">
+    <div class="container-fluid">
+      <a class="navbar-brand img-fluid" href="/index"><img src="static/images/logo.png" alt="logo"
+          style="height: 40px;width: 40px;"> </a>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="/index">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/check">Check</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/disease">Diseases</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <main class="my" id="my">
+    <div class="container" id="cont">
+      <!--Section: Content-->
+      <section class="text-center">
+        <h4 class="mb" id="mb" style="color: #6f1ad0; font-size: 30px;"><strong>Results</strong></h4>
+        <h4 id="res"></h4>
+        <div class="mb">
+          <div class="card">
+            <br>
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img src={{url_for('static', filename='uploads/' + img)}} class="img-fluid" id="imgdis"
+                style="border: 10px solid #6f1ad0;height: 400px;width: 400px;" />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
             </div>
-            <ul>
-               <li><a href="/check">CHECK</a></li>
-            </ul>
-        </nav> <br>
-        <main class="my" id="my" >
-          <div class="container" id="cont">
-            <!--Section: Content-->
-            <section class="text-center"> <br>
-              <h4 class="mb" id="mb" style="color:#9a7e6a; font-size: 30px;"><strong>Results</strong></h4>
-              <h4 id="res"></h4>
-              <div class="mb">
-                <div class="card">
-                  <br>
-                  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                    <img src={{url_for('static', filename = 'uploads/'+ img)}} class="img-fluid" id="imgdis" height="500" width="500" style="border: 10px solid #ddd;"/>
-                    <a href="#!">
-                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                    </a>
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text" id="card" style="color:#9a7e6a; font-size: 30px;font-weight: bold;">
-                      {{ class_result }}
-                    </p>
-                    <a href="/check" class="btn btn-primary"  id="goa" style="background-color: #9a7e6a; color: whitesmoke;">Go Again</a>
-                    <button onclick="re()" class="btn btn-primary" id="reo" style="background-color: #9a7e6a; color: whitesmoke;">Remedies</button>
-                    <br>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-          <div class="remedies-content" id="remedies-content">
-            <div class="dos" id="dos">
-              <h3 id="do"></h3>
-              <li id="doo"> 
-                  <li id="do1"></li>
-                  <li id="do2"></li>
-                  <li id="do3"></li>
-              </li>
-            </div><br>
-            <div class="donts" id="donts">
-              <h3 id="don"></h3>
-              <li id="doon"> 
-                  <li id="don1"></li>
-                  <li id="don2"></li>
-                  <li id="don3"></li>
-              </li>
-            </div> <br>
-            <div class="products" id="products">
-              <h3 id="p"></h3>
-              <li id="po">
-                <li id="p1l"><span id="p1p" style="font-weight: bolder; color:white;">.</span> <a class="first"  target="_blank" id="p1"></a>  <i class="fa-solid fa-arrow-up-right-from-square" id="pi1" style="color: white;"></i></li>
-                <li id="p2l"><span id="p2p" style="font-weight: bolder; color:white;">.</span> <a class="first"  target="_blank" id="p2"></a>  <i class="fa-solid fa-arrow-up-right-from-square" id="pi2" style="color: white;"></i></li>
-                <li id="p3l"><span id="p3p" style="font-weight: bolder; color:white;">.</span> <a class="first"  target="_blank" id="p3"></a>  <i class="fa-solid fa-arrow-up-right-from-square" id="pi3" style="color: white;"></i></li>
-              </li>
+            <div class="card-body">
+              <p class="card-text" id="card" style="color:#6f1ad0; font-size: 30px;font-weight: bold;">
+                {{ class_result }}
+              </p>
+              <a href="/check" class="btn btn-primary" id="goa" style="background-color: #6f1ad0; color: white;">Go
+                Again</a>
+              <button onclick="re()" class="btn btn-primary" id="reo"
+                style="background-color: #6f1ad0; color: whites;">Remedies</button>
+              <br>
             </div>
           </div>
-        </main>
-        
-        <script>
-          function re(){
-            var style = document.createElement('style');
-            const pss = document.getElementById("remedies-content");
-            pss.classList.add("container");
-            const ne = document.getElementById("dos");
-            ne.classList.add("card","text-start","text-white","bg-success","mb-3");
-            const pe = document.getElementById("donts");
-            pe.classList.add("card","text-start","text-white","bg-danger","mb-3");
-            const se = document.getElementById("products");
-            se.classList.add("card","text-start","text-dark","bg-info","mb-3");
-            const tes = document.getElementById("po1");
-            se.classList.add("link-primary");
-            const tes1 = document.getElementById("po2");
-            se.classList.add("link-primary");
-            const tes2 = document.getElementById("po3");
-            se.classList.add("link-primary");
-            style.innerHTML = `
+        </div>
+      </section>
+    </div> 
+    <br>
+    <div class="remedies-content" id="remedies-content" style="visibility: hidden;">
+    <div class="container px-4 py-5" id="featured-3">
+      <h2 class="pb-2 border-bottom" style="color: #6f1ad0;"><strong>DO'S - Things Which Has To Be Done</strong></h2>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <i class="fa-solid fa-circle-check" style="color: #6f1ad0;background-color: white;"></i>
+          </div>
+          <p id="do1" style="color: #6f1ad0;"></p>
+        </div>
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <i class="fa-solid fa-circle-check" style="color: #6f1ad0;background-color: white;"></i>
+          </div>
+          <p id="do2" style="color: #6f1ad0;"></p>
+        </div>
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <i class="fa-solid fa-circle-check" style="color: #6f1ad0;background-color: white;"></i>
+          </div>
+          <p id="do3" style="color: #6f1ad0;"></p>
+        </div>
+      </div>
+    </div>
+    <div class="container px-4 py-5" id="featured-3">
+      <h2 class="pb-2 border-bottom" style="color: #6f1ad0;"><strong>DON'TS - Things Which Has To Be AVOIDED</strong></h2>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <i class="fa-solid fa-circle-xmark" style="color: #6f1ad0;background-color: white;"></i>
+          </div>
+          <p id="don1" style="color: #6f1ad0;"></p>
+        </div>
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <i class="fa-solid fa-circle-xmark" style="color: #6f1ad0;background-color: white;"></i>
+          </div>
+          <p id="don2" style="color: #6f1ad0;"></p>
+        </div>
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <i class="fa-solid fa-circle-xmark" style="color: #6f1ad0;background-color: white;"></i>
+          </div>
+          <p id="don3" style="color: #6f1ad0;"></p>
+        </div>
+    </div>
+    <div class="container">
+      <h2 class="pb-2 border-bottom" style="color: #6f1ad0;"><strong>Treatment - MEDICAL CARE FOR CURE</strong></h2>
+      <div class="list-group w-auto">
+        <a href="" id="p1" class="list-group-item list-group-item-action d-flex gap-3 py-3" style="color: #6f1ad0;" aria-current="true">
+          
+        </a><br>
+        <a href="" id="p2" class="list-group-item list-group-item-action d-flex gap-3 py-3" style="color: #6f1ad0;" aria-current="true">
+          
+        </a><br>
+        <a href="" id="p3" class="list-group-item list-group-item-action d-flex gap-3 py-3" style="color: #6f1ad0;" aria-current="true">
+          
+        </a>
+      </div>
+    </div>
+    <div class="remedies-content" id="remedies-content" style="visibility: collapse;">
+      <div class="dos" id="dos">
+        <h3 id="do"></h3>
+        <li id="doo">
+        <li id="do1"></li>
+        <li id="do2"></li>
+        <li id="do3"></li>
+        </li>
+      </div><br>
+      <div class="donts" id="donts">
+        <h3 id="don"></h3>
+        <li id="doon">
+        <li id="don1"></li>
+        <li id="don2"></li>
+        <li id="don3"></li>
+        </li>
+      </div> <br>
+      <div class="products" id="products">
+        <h3 id="p"></h3>
+        <li id="po">
+        <li id="p1l"><span id="p1p" style="font-weight: bolder; color:white;"></span> <a class="first" target="_blank"
+            id="p1"></a> <i class="fa-solid fa-arrow-up-right-from-square" id="pi1" style="color: white;"></i></li>
+        <li id="p2l"><span id="p2p" style="font-weight: bolder; color:white;"></span> <a class="first" target="_blank"
+            id="p2"></a> <i class="fa-solid fa-arrow-up-right-from-square" id="pi2" style="color: white;"></i></li>
+        <li id="p3l"><span id="p3p" style="font-weight: bolder; color:white;"></span> <a class="first" target="_blank"
+            id="p3"></a> <i class="fa-solid fa-arrow-up-right-from-square" id="pi3" style="color: white;"></i></li>
+        </li>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function re() {
+      var style = document.createElement('style');
+      const pss = document.getElementById("remedies-content");
+      pss.classList.add("container");
+      const ne = document.getElementById("dos");
+      ne.classList.add("card", "text-start", "text-white", "bg-success", "mb-3");
+      const pe = document.getElementById("donts");
+      pe.classList.add("card", "text-start", "text-white", "bg-danger", "mb-3");
+      const se = document.getElementById("products");
+      se.classList.add("card", "text-start", "text-dark", "bg-info", "mb-3");
+      const tes = document.getElementById("po1");
+      se.classList.add("link-primary");
+      const tes1 = document.getElementById("po2");
+      se.classList.add("link-primary");
+      const tes2 = document.getElementById("po3");
+      se.classList.add("link-primary");
+      style.innerHTML = `
             body{
               font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
               background-color: rgb(251, 251, 253);
@@ -179,203 +271,292 @@
               padding: 10px 25px 25px 6px;
             }
             `;
-            document.head.appendChild(style);
-            document.getElementById("res").innerHTML="MEDICAL REMEDIES";
-            document.getElementById("res").style.color="#9a7e6a";
-            document.getElementById("do").innerHTML="DO'S";
-            document.getElementById("don").innerHTML="DON'TS";
-            document.getElementById("p").innerHTML="TREATMENT";
-            const me = document.getElementById("mb");
-            const go = document.getElementById("goa");
-            const re = document.getElementById("reo");
-            go.remove();
-            re.remove();
-            me.remove();
-            let cl = JSON.parse(' {{ class_result | tojson }}')
-            if (cl == "Eczema Photos"){
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO avoid triggers of the rash, including stress.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO moisturize your skin daily, even when you have no symptoms. Use an odor-free oil-based cream or ointment (not lotion), best applied just after bathing while skin is still damp. Use hypoallergenic products when possible. ";
-              document.getElementById("do3").innerHTML="<strong>.</strong> DO take all pills prescribed by your health care provider. Don't stop taking the medicines unless your health care provider approves.";
-              document.getElementById("don1").innerHTML="<strong>.</strong> DON'T let your skin or home become too dry. A home humidifier may help.";
-              document.getElementById("don2").innerHTML="<strong>.</strong> DON'T drive, cook, or operate machinery while using antihistamines if they make you sleepy.";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T forget your daily skin regimen even if you feel well. Plan ahead for trips by saving some of your usual products.";
-              document.getElementById("p1").innerHTML="<strong>.</strong> Skin smoothing cream moisturiser";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Atorep Barrier Cream for Dry, Sensitive & Atopic Skin";
-              document.getElementById("p3").innerHTML="<strong>.</strong> CeraVe Healing Ointment";
-              document.getElementById("p1").href="https://dermalogica.in/products/skin-smoothing-cream-face-moisturiser?variant=39602574524493&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAw0voCD7gmCEGdZxvYhy7bcZygsLRjMpdn9leBGaxwXOKIUuoCydmIaAmU4EALw_wcB";
-              document.getElementById("p2").href="https://www.reequil.com/products/atorep-barrier-cream-for-atopic-skin?variant=39260018704570&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_source=google-ads&utm_medium=prospecting&utm_campaign=performance-max&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAy4jkrchZo6azQSYYT10C9d8KcGNE2s2B2plS4VQs9Ee7Q1R0YmfvIaAlSREALw_wcB";
-              document.getElementById("p3").href="https://www.target.com/p/cerave-healing-ointment-3oz/-/A-79368529?clkid=fbee3cdeN6a7711edaa00db821e97393b&lnm=81938&afid=New%20York%20Media&ref=tgt_adv_xasd0002";
-            } else if(cl == "Acne") {
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
-              document.getElementById("do3").innerHTML="<strong>.</strong>  DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
-              document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
-              document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
-              document.getElementById("p1").innerHTML=" Naturals Skin Potion Anti Acne Skincare Face Oil";
-              document.getElementById("p2").innerHTML=" Acne Spot Corrector Gel";
-              document.getElementById("p3").innerHTML=" ANTI-ACNE FACE MIST";
-              document.getElementById("p1").href="https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
-              document.getElementById("p2").href="https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
-              document.getElementById("p3").href="https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
-            } else if(cl == "Actnic Cheilitis"){
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO take breaks from the sun when possible.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO use lip balm with an SPF of at least 15. Put it on before you go into the sun, and reapply it often.";
-              document.getElementById("do3").innerHTML="<strong>.</strong>  DO wear a hat with a wide brim that shades your face.";
-              document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T lick your lips to often. Try keeping it mild dry and wet.";
-              document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be outside in midday, when the sun is strongest.";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T bite pores of lips to worsen it.";
-              document.getElementById("p1").innerHTML="<strong>.</strong> Blistex, Medicated Lip Ointment";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Sebamed Lip Defense Triple Protection SPF 30";
-              document.getElementById("p3").innerHTML="<strong>.</strong> LIP BUTTER - SHEA/OLIVE";
-              document.getElementById("p1").href="https://in.iherb.com/pr/blistex-medicated-lip-ointment-21-oz-6-g/44053?gclid=CjwKCAiApvebBhAvEiwAe7mHSMddqd9UO2XMe2BikCuzkY-4XvBoZa_iYa6OEwiePMiNM1USyjOmLRoCRf8QAvD_BwE&gclsrc=aw.ds";
-              document.getElementById("p2").href="https://www.clinikally.com/products/sebamed-lip-defense-spf30?variant=42852339450103&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_campaign=gs-2021-06-16&utm_source=google&utm_medium=smart_campaign&gclid=CjwKCAiApvebBhAvEiwAe7mHSC5Y0NwM-_U9InCdwcCHtsPO8JbuTz3xWlCnTka5JlW3ZaaOvf7R2RoCk94QAvD_BwE";
-              document.getElementById("p3").href="https://earthrhythm.com/products/lip-butter-1?currency=INR&utm_medium=cpc&utm_source=google&utm_campaign=Google%20Shopping/?utm_source=google&utm_medium=cpc&utm_campaign=&gclid=CjwKCAiApvebBhAvEiwAe7mHSHL13waS4vN-T1VHE5-3TCr7c9FDOOCMDavkV0n0Ak89amBBbt10ThoCaIgQAvD_BwE";
-             
-            } else  if(cl == "Basal Cell Carcinoma"){
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO have a skin examination yearly, or more often if your health care provider recommends it.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO call your health care provider if you have a new mole or abnormal skin area, an area that doesn't heal or that bleeds often, a raised skin mole with a central depressed area, a mole that changes shape or color or that has irregular or unclear borders, or a mole that is asymmetric.";
-              document.getElementById("do3").innerHTML="<strong>.</strong>  DO wear sunscreen with a sun protection factor (SPF) of 15 or higher, protective clothing, and hats.";
-              document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T go in the sun when it's hottest, especially from 11 am to 3 pm during summer days.";
-              document.getElementById("don2").innerHTML="<strong>.</strong> DON'T delay seeing your health care provider if you have any warning signs of skin cancer."; 
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T keep yourself exposed to uv sunlight";
-              document.getElementById("p1").innerHTML="<strong>.</strong> Fluorouracil topical (Under Prescription).";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Odomzo (Under Prescription).";
-              document.getElementById("p3").innerHTML="<strong>.</strong> Vismodegib (Under Prescription).";
-              document.getElementById("p1").href="https://www.drugs.com/mtm/fluorouracil-topical.html";
-              document.getElementById("p3").href="https://www.drugs.com/mtm/vismodegib.html";
-              document.getElementById("p2").href="https://www.drugs.com/odomzo.html";
-             
-            } else if(cl == "Hair Disease"){
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO Make sure your diet contains an adequate amount of nutrients especially iron and protein.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO A lukewarm oil massage using oils like coconut, almond, and castor will boost scalp circulation and tightening of hair follicles.";
-              document.getElementById("do3").innerHTML="<strong>.</strong>  DO A mild shampoo is enough to cleanse the scalp and get rid of natural sebum secretion and environmental pollution.";
-              document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T use products with a high sulphur content and artificial scents Organic shampoos.";
-              document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T use heating products on wet hair. Doing this can really damage your hair.";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T perform excess blow drying, heated combs, hair straightener, colouring products, bleaching agents, perms, and relaxers can dry out the hair strands to the core.";
-              document.getElementById("p1").innerHTML="<strong>.</strong> Traya Complete Hair Growth Kit";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Biotin Hair Gummies";
-              document.getElementById("p3").innerHTML="<strong>.</strong> Chemical-free hair and scalp cleanser shampoo";
-              document.getElementById("p1").href="https://traya.health/products/complete-hair-growth-kit?kw=&campaignid=17173158462&adgroupid=&adid=&gclid=CjwKCAiApvebBhAvEiwAe7mHSMjtUeDjtmKDsPIXsEocQcZIPhsSARpna0EGzLWFWXqUbjNua4onKhoCONoQAvD_BwE";
-              document.getElementById("p2").href="https://manmatters.com/dp/p-biotin-hair-gummies-30-n/1605?utm_source=google&utm_medium=PLA&utm_campaign=Shopping_Manual_MM_HairGummies30_product_hair_gummies_30&gclid=CjwKCAiApvebBhAvEiwAe7mHSDk2-7K56_qWddKkRdqD3h6g0g69WnhV96zNnHahpKJpuJHagDb5kRoCCyEQAvD_BwE";
-              document.getElementById("p3").href="https://traya.health/products/shampoo?variant=37546042785970&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&kw=&campaignid=17173158462&adgroupid=&adid=&gclid=CjwKCAiApvebBhAvEiwAe7mHSNmDtdUPyu7TvwkGQ-Pg3eojXkMNR2y2m7q1fxKLXiwL4qt3p6lVAhoCsLIQAvD_BwE";
-              
-            } else  if(cl == "Nail Fungal") {
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO wash hands and feet regularly and dry them thoroughly.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO wear rubber gloves when dealing with food, water, dirt, oil and chemicals, etc.";
-              document.getElementById("do3").innerHTML="<strong>.</strong>  DO treat a nail fungus infection as early as possible to avoid more serious problems or permanent damage to the nails.";
-              document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T walk barefoot in public areas.";
-              document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T nail apply polish or artificial nails at first sight of a possible nail fungal infection.";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T choose salons that share tools and only use sterilized tools for manicures or pedicures.";
-              document.getElementById("p1").innerHTML="<strong>.</strong> Bella Voste Nail Care Antiseptic Drops";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Neem Oil Cold Pressed Anti Fungal";
-              document.getElementById("p3").innerHTML="<strong>.</strong> Fungus Fighter Compound";
-              document.getElementById("p1").href="https://www.netmeds.com/non-prescriptions/bella-voste-nail-care-antiseptic-drops-10-ml?source_attribution=ADW-CPC-Pmax_beauty_purchase&utm_source=ADW-CPC-Pmax_beauty_purchase&utm_medium=CPC&utm_campaign=ADW-CPC-Pmax_beauty_purchase&gclid=CjwKCAiApvebBhAvEiwAe7mHSL81yfxSNT80u4GXcxwL7puPf_J4AO63UZPdwnPbrZh58d3ZNX1WTxoCm7IQAvD_BwE";
-              document.getElementById("p2").href="https://amala.earth/products/atulya-neem-coldpress-oil-200-ml-at-0018-19722?utm_source=Google_ads&utm_medium=&utm_campaign=18739464851--142928717956&utm_content=631455068525&utm_term=--&utm_id=18739464851--142928717956--631455068525--c--g------&gclid=CjwKCAiApvebBhAvEiwAe7mHSHdnmXiU8DM9gk6DB9rwCRIRTN1FtvY7sZ1BLFG0Eo8zxYYQ_iUmchoCdmAQAvD_BwE";
-              document.getElementById("p3").href="https://www.luckyvitamin.com/p-419730-herb-pharm-fungus-fighter-compound-4-oz";
-              
-            } else if(cl == "Psoriasis Hair") {
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO investigate symptoms. Even though half of psoriasis";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO use shampoos that contain tar or salicylic acid. Tar has proven effective as a treatment for psoriasis for decades";
-              document.getElementById("do3").innerHTML="<strong>.</strong>  DO use natural products. The best natural products for your hair and scalp are usually the ingredients you can also ingest.";
-              document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T use harmful chemicals. While you may not necessarily be using relaxers or perms, you might still be using chemicals that are too harsh on your scalp.";
-              document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T use hot water. Like the rest of your body, the scalp can be negatively affected by hot water.";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T be afraid to speak up about symptoms and treatment options";
-              document.getElementById("p1").innerHTML="<strong>.</strong> Traya Complete Hair Growth Kit";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Biotin Hair Gummies";
-              document.getElementById("p3").innerHTML="<strong>.</strong> Chemical-free hair and scalp cleanser shampoo";
-              document.getElementById("p1").href="https://traya.health/products/complete-hair-growth-kit?kw=&campaignid=17173158462&adgroupid=&adid=&gclid=CjwKCAiApvebBhAvEiwAe7mHSMjtUeDjtmKDsPIXsEocQcZIPhsSARpna0EGzLWFWXqUbjNua4onKhoCONoQAvD_BwE";
-              document.getElementById("p2").href="https://manmatters.com/dp/p-biotin-hair-gummies-30-n/1605?utm_source=google&utm_medium=PLA&utm_campaign=Shopping_Manual_MM_HairGummies30_product_hair_gummies_30&gclid=CjwKCAiApvebBhAvEiwAe7mHSDk2-7K56_qWddKkRdqD3h6g0g69WnhV96zNnHahpKJpuJHagDb5kRoCCyEQAvD_BwE";
-              document.getElementById("p3").href="https://traya.health/products/shampoo?variant=37546042785970&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&kw=&campaignid=17173158462&adgroupid=&adid=&gclid=CjwKCAiApvebBhAvEiwAe7mHSNmDtdUPyu7TvwkGQ-Pg3eojXkMNR2y2m7q1fxKLXiwL4qt3p6lVAhoCsLIQAvD_BwE";
-              
-            } else if(cl == "Warts Molluscum") {
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO wash your hands. There are ways to prevent the spread of molluscum.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO keep molluscum lesions covered, so that others do not touch the lesions and become infected.";
-              document.getElementById("do3").innerHTML="<strong>.</strong> DO clothing or bandage on the sport of its existance.";
-              document.getElementById("don1").innerHTML="<strong>.</strong> DON'T share towels, clothing, or other personal items.";
-              document.getElementById("don2").innerHTML="<strong>.</strong> DON'T share towels, clothing, or other personal items.";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T share personal items such as unwashed clothes, hair brushes, wrist watches, and bar soap with others.";
-              document.getElementById("p1").innerHTML="<strong>.</strong> E-Warts Drops";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Urban ReLeaf Molluscum Vanishing Stick";
-              document.getElementById("p3").innerHTML="<strong>.</strong> Anti Wart & Dark Spots Facial Oil";
-              document.getElementById("p1").href="https://www.excelpharma.co.in/product/e-warts-drops-homeopathic-wart-treatment/?gclid=CjwKCAiApvebBhAvEiwAe7mHSOkp0xjG7iCIo1pu9F7fXXzP2p1sd8fUIHNAPK7OHOR8eUG7VTAGIxoCG_sQAvD_BwE";
-              document.getElementById("p2").href="https://www.getuscart.com/urban-releaf-molluscum-vanishing-stick-fast-painless-help-for-molluscum-verrucas-warts-skin-tags-100-natural-salve-topical-cream-safe-for-kids-delicate-areasgoodbye-itchy-red-bumps?gclid=CjwKCAiApvebBhAvEiwAe7mHSDAlfxWk12v6lmC8joCcx40MZjNee9unGS7NfHsktdAIlrtJddzxEBoCctcQAvD_BwE";
-              document.getElementById("p3").href="https://brownliving.in/products/anti-wart-dark-spots-facial-oil?variant=32075452022864&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=CjwKCAiApvebBhAvEiwAe7mHSPTPSSuf_a9VkPE-yusqYj6zh9Iz4LQ_o4CYH_VNpna1mi0FaAfwKRoC8TkQAvD_BwE";
-             
-            } else if(cl == "Skin Cancer") {
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO seek support from friends, family, support groups, mental health professionals and others to help you cope with your diagnosis and treatment.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO educate yourself on the wide range of resources, medical navigational assistance and related support resources and services available through the Robins Nest program.";
-              document.getElementById("do3").innerHTML="<strong>.</strong> DO inform all members of your health-care team about your skin cancer diagnosis and any proposed treatment. "; 
-              document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T hesitate to speak up if you are unclear or have questions for your doctor or any other health care team member.  ";
-              document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T rush a treatment decision. Take the time to educate yourself about treatment options and the pros and cons of each. ";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T hesitate to seek a second opinion if you are uncertain about your diagnosis or proposed treatment.";
-              document.getElementById("p1").innerHTML="<strong>.</strong> Government Cancer Treatment Drug";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Fluorouracil topical (Under Prescription).";
-              document.getElementById("p3").innerHTML="<strong>.</strong> Odomzo (Under Prescription).";
-              document.getElementById("p1").href="https://www.cancer.gov/about-cancer/treatment/drugs/skin";
-              document.getElementById("p2").href="https://www.drugs.com/mtm/fluorouracil-topical.html";
-              document.getElementById("p3").href="https://www.drugs.com/odomzo.html";
-             
-            } else if(cl == "Tinea Ringworm Candidiasis") {
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO use antifungal dusting powders for your skin folds such as underarms, thigh folds, below breasts, and between the toes.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO check your blood sugar level frequently and make sure your blood sugars are within the normal range because uncontrolled blood sugar is a risk factor for fungal infection.";
-              document.getElementById("do3").innerHTML="<strong>.</strong> DO eat healthy food, keep your body weight ideal for your height because being overweight or underweight leads to reduced immunity which increases the chances of acquiring a fungal infection."; 
-              document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T scratch. Scratching makes the rash worse. Ask your dermatologist to prescribe anti-itching medicine.";
-              document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T wear synthetic clothes, tight-fitting jeans that do not allow air to flow through them, and wet inner clothes.";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T use home remedies such as garlic paste to get rid of ringworm. This could burn your skin and leave a permanent scar.";
-              document.getElementById("p1").innerHTML="<strong>.</strong> Tetmosol Antifungal Powder";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Clotrimazole Intimate Powder";
-              document.getElementById("p3").innerHTML="<strong>.</strong> Terrasil Tinea Anti Fungal Cleansing Bar";
-              document.getElementById("p1").href="https://wellify.in/products/tetomosol-antifungal-dusting-powder?variant=40486037553343&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_source=GooglePMax&utm_campaign=FE_02_PerformanceMax_HealthandWellness_India_Wellify_PanIndia&utm_medium=FE&utm_content=shopify_IN_6899291259071_40486037553343__&utm_term=FE_02_AG_All&gclid=CjwKCAiAyfybBhBKEiwAgtB7fquLKptn-Aq5G8x5agHwtSr9SfXtl3Fn3TdmwXIhylzXdJ-qH-20NRoCtOMQAvD_BwE";
-              document.getElementById("p2").href="https://manmatters.com/dp/p-clotrimazole-intimate-powder-100-g/5516756?utm_source=Google&utm_medium=PLA&utm_campaign=Shopping_Manual_MM_Low_Catch_All_product_5516756&gclid=CjwKCAiAyfybBhBKEiwAgtB7fnOHLu1xalAc4-91jiypkYxql-fB-LpK0Wr-r76S5IZX2rcUWa4ICRoCVEAQAvD_BwE";
-              document.getElementById("p3").href="https://in.iherb.com/pr/terrasil-tinea-anti-fungal-cleansing-bar-75-g/111808?gclid=CjwKCAiAyfybBhBKEiwAgtB7fiNC39He-kMG_JM4RfgZowm6xdHR238nYyBMXXa9VTedSh7eF9dwSRoCKYIQAvD_BwE&gclsrc=aw.ds";
-              
-            } else if(cl == "Scabies") {
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO apply the ointment prescribed by the doctor.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO regularly wash your garments, bed sheets and towel.";
-              document.getElementById("do3").innerHTML="<strong>.</strong> DO maintain cleanliness in your surrounding"; 
-              document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T touch kids or their things with infected hands.";
-              document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T share your clothes, towel, blankets etc.";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T be embarrassed to visit a dermatologist.";
-              document.getElementById("p1").innerHTML="<strong>.</strong> Himosis Fore Stretch Cream For Loosening Tight Skin";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Soreze Adult Diaper Rash";
-              document.getElementById("p3").innerHTML="<strong>.</strong> AnoSpray The Advanced Piles Care and Fissure Care Spray";
-              document.getElementById("p1").href="https://vajraang.com/product/phimosis-fore-stretch-cream-for-loosening-tight-foreskin/?gclid=CjwKCAiAyfybBhBKEiwAgtB7fuU_YSuLM21KGNlpzkOUpaoAP8O2YsRFsrYXOECRPGpVK_JNCCdNKBoChGgQAvD_BwE";
-              document.getElementById("p2").href="https://www.sorezecare.com/products/soreze-adult-diaper-rash-gel-30g-best-for-treatment-and-prevention-of-adult-diaper-rashes?utm_source=Google&utm_medium=CPC&utm_campaign=ADRG-Shopping-CNV-14%2F10%2F2021-SYP&utm_id=14947856053&gclid=CjwKCAiAyfybBhBKEiwAgtB7fqh8KfZLBLKVbEU1ClaSDdghxsbp8ntJ6M7ysWOpOVdIFbCDohMR3RoCefsQAvD_BwE";
-              document.getElementById("p3").href="https://pilospray.com/product/anospray-pack-of-1/?gclid=CjwKCAiAyfybBhBKEiwAgtB7frW7tZemdW5oIXaFcl8QkIPMVrdLZ9XauoWcVRCh7o1F7OsHH94G3xoCaL4QAvD_BwE";
-             
-            } else if(cl == "Rosacea") {
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO protect your face from wind and cold. Covering your face with a scarf helps protect your skin.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO apply a sunscreen before going outside since sun exposure can cause rosacea to flare.";
-              document.getElementById("do3").innerHTML="<strong>.</strong> DO take good care of your skin. Avoid rubbing, scrubbing, or massaging the face."; 
-              document.getElementById("don1").innerHTML="<strong>.</strong>  DON'T overheat. Extremely hot temperatures often aggravate rosacea.";
-              document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T consume too much caffeine, red wine, spicy foods, and hot beverages. For many folks, these foods and drinks can cause rosacea flare-ups.";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T wear wool scarfs or those made of rough fabrics that tend to irritate the neck and face.";
-              document.getElementById("p1").innerHTML="<strong>.</strong> Skin Smoothing Cream Moisturiser";
-              document.getElementById("p2").innerHTML="<strong>.</strong> INSTANT ANTI-REDNESS CREAM";
-              document.getElementById("p3").innerHTML="<strong>.</strong> Sensitive Skin Squad";
-              document.getElementById("p1").href="https://dermalogica.in/products/skin-smoothing-cream-face-moisturiser?variant=39557443420237&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=CjwKCAiAyfybBhBKEiwAgtB7fisd7VxaPe7315GYgxhXtA2gfLNqqeCxjaQSwucPc5q581fteEi9CxoCowMQAvD_BwE";
-              document.getElementById("p2").href="https://marycohr.co.in/products/instant-anti-redness-cream?variant=31465054765118&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=CjwKCAiAyfybBhBKEiwAgtB7fq9JcC408vtpKUioJW2nZ9CeyPtv5Sd72Diszj4vCFcDbzh-2gwxhxoCIlwQAvD_BwE";
-              document.getElementById("p3").href="https://foxtale.in/products/sensitive-skin-squad?variant=43236776739063&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=CjwKCAiAyfybBhBKEiwAgtB7fpGjmW92nGTDJrOr6DQ-_U0HTAjo1o37mV0JSt_Ow83FKEvEXe-U2RoCVU8QAvD_BwE";
-              
-            } else if(cl == "Seborrheic Keratoses") {
-              document.getElementById("do1").innerHTML="<strong>.</strong> DO freezing on growth with liquid nitrogen. Which can be an effective way to remove a seborrheic keratosis.";
-              document.getElementById("do2").innerHTML="<strong>.</strong> DO scraping or shaving the skin's surface. First your doctor will numb the area and then use a scalpel blade to remove the growth.";
-              document.getElementById("do3").innerHTML="<strong>.</strong> DO burning with an electric current. First your doctor will numb the area and then destroy the growth with electrocautery."; 
-              document.getElementById("don1").innerHTML="<strong>.</strong> DON'T overheat. Extremely hot temperatures often aggravate Seborrheic Keratoses";
-              document.getElementById("don2").innerHTML="<strong>.</strong>  DON'T be embarrassed to visit a dermatologist.";
-              document.getElementById("don3").innerHTML="<strong>.</strong> DON'T scratch. Scratching makes the rash worse. Ask your dermatologist to prescribe anti-itching medicine.";
-              document.getElementById("p1").innerHTML="<strong>.</strong> SkinEasi® Activ Silicone Anti-Chafing Gel";
-              document.getElementById("p2").innerHTML="<strong>.</strong> Pilgrim PHA Peeling Solution";
-              document.getElementById("p3").innerHTML="<strong>.</strong> Vensore Topical Anti-Infective Ointment";
-              document.getElementById("p1").href="https://www.skineasi.com/products/skineasi-activ-silicone-anti-chafing-gel?gclid=CjwKCAiAyfybBhBKEiwAgtB7fvuSp9-5NQZ473vestgGbJH0RNM5BvVoqR7hCdgTCaRSYPvgpFk8DhoCFuQQAvD_BwE&utm_campaign=shopping&utm_medium=cpc&utm_source=google";
-              document.getElementById("p2").href="https://www.skineasi.com/products/skineasi-activ-silicone-anti-chafing-gel?gclid=CjwKCAiAyfybBhBKEiwAgtB7fvuSp9-5NQZ473vestgGbJH0RNM5BvVoqR7hCdgTCaRSYPvgpFk8DhoCFuQQAvD_BwE&utm_campaign=shopping&utm_medium=cpc&utm_source=google";
-              document.getElementById("p3").href="https://www.netmeds.com/non-prescriptions/vensore-topical-anti-infective-ointment-20-gm?source_attribution=ADW-CPC-Pmax_pharma-PY-Netmeds_Vib_PMax_FP&utm_source=ADW-CPC-Pmax_pharma-PY-Netmeds_Vib_PMax_FP&utm_medium=CPC&utm_campaign=ADW-CPC-Pmax_pharma-PY-Netmeds_Vib_PMax_FP&gclid=CjwKCAiAyfybBhBKEiwAgtB7fqEI3_zR6rEBfHF15t4PybJ97Vh1uyy4bUvbQSyujfC09rXv4vR7CxoCgNYQAvD_BwE";
-              } else {
-              alert("NO DISEASE FOUND");
-            }
-          } 
-        </script>
-    </body>
+      document.head.appendChild(style);
+      document.getElementById('remedies-content').style.visibility="visible";
+      document.getElementById("res").innerHTML = "MEDICAL REMEDIES";
+      document.getElementById("res").style.color = "#6f1ad0";
+      document.getElementById("do").innerHTML = "DO'S";
+      document.getElementById("don").innerHTML = "DON'TS";
+      document.getElementById("p").innerHTML = "TREATMENT";
+      const me = document.getElementById("mb");
+      const go = document.getElementById("goa");
+      const re = document.getElementById("reo");
+      go.remove();
+      re.remove();
+      me.remove();
+      let cl = JSON.parse(' {{ class_result | tojson }}')
+      if (cl == "Eczema Foot") {
+        document.getElementById("do1").innerHTML = "DO avoid triggers of the rash, including stress.";
+        document.getElementById("do2").innerHTML = "DO moisturize your skin daily, even when you have no symptoms. Use an odor-free oil-based cream or ointment (not lotion), best applied just after bathing while skin is still damp. Use hypoallergenic products when possible. ";
+        document.getElementById("do3").innerHTML = "DO take all pills prescribed by your health care provider. Don't stop taking the medicines unless your health care provider approves.";
+        document.getElementById("don1").innerHTML = "DON'T let your skin or home become too dry. A home humidifier may help.";
+        document.getElementById("don2").innerHTML = "DON'T drive, cook, or operate machinery while using antihistamines if they make you sleepy.";
+        document.getElementById("don3").innerHTML = "DON'T forget your daily skin regimen even if you feel well. Plan ahead for trips by saving some of your usual products.";
+        document.getElementById("p1").innerHTML = "Skin smoothing cream moisturiser";
+        document.getElementById("p2").innerHTML = "Atorep Barrier Cream for Dry, Sensitive & Atopic Skin";
+        document.getElementById("p3").innerHTML = "CeraVe Healing Ointment";
+        document.getElementById("p1").href = "https://dermalogica.in/products/skin-smoothing-cream-face-moisturiser?variant=39602574524493&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAw0voCD7gmCEGdZxvYhy7bcZygsLRjMpdn9leBGaxwXOKIUuoCydmIaAmU4EALw_wcB";
+        document.getElementById("p2").href = "https://www.reequil.com/products/atorep-barrier-cream-for-atopic-skin?variant=39260018704570&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_source=google-ads&utm_medium=prospecting&utm_campaign=performance-max&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAy4jkrchZo6azQSYYT10C9d8KcGNE2s2B2plS4VQs9Ee7Q1R0YmfvIaAlSREALw_wcB";
+        document.getElementById("p3").href = "https://www.target.com/p/cerave-healing-ointment-3oz/-/A-79368529?clkid=fbee3cdeN6a7711edaa00db821e97393b&lnm=81938&afid=New%20York%20Media&ref=tgt_adv_xasd0002";
+      } else if (cl == "Acne On Body") {
+        document.getElementById("do1").innerHTML = "DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+        document.getElementById("do2").innerHTML = "DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+        document.getElementById("do3").innerHTML = "DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+        document.getElementById("don1").innerHTML = "DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+        document.getElementById("don2").innerHTML = "DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+        document.getElementById("don3").innerHTML = "DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+        document.getElementById("p1").innerHTML = "Naturals Skin Potion Anti Acne Skincare Face Oil";
+        document.getElementById("p2").innerHTML = "Acne Spot Corrector Gel";
+        document.getElementById("p3").innerHTML = "ANTI-ACNE FACE MIST";
+        document.getElementById("p1").href = "https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+        document.getElementById("p2").href = "https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+        document.getElementById("p3").href = "https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+      }
+      else if (cl == "Acne On Face") {
+        document.getElementById("do1").innerHTML = "DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+        document.getElementById("do2").innerHTML = "DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+        document.getElementById("do3").innerHTML = "DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+        document.getElementById("don1").innerHTML = "DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+        document.getElementById("don2").innerHTML = "DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+        document.getElementById("don3").innerHTML = "DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+        document.getElementById("p1").innerHTML = "Naturals Skin Potion Anti Acne Skincare Face Oil";
+        document.getElementById("p2").innerHTML = "Acne Spot Corrector Gel";
+        document.getElementById("p3").innerHTML = "ANTI-ACNE FACE MIST";
+        document.getElementById("p1").href = "https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+        document.getElementById("p2").href = "https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+        document.getElementById("p3").href = "https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+      }
+      else if (cl == "Raynauds Phenomenon") {
+        document.getElementById("do1").innerHTML = "DO wear extra warm clothing to protect yourself from the cold.";
+        document.getElementById("do2").innerHTML = "DO exercise to increase blood flow, especially for primary Raynaud’s disease.";
+        document.getElementById("do3").innerHTML = "DO avoid wearing clothing or jewelry that is too tight.";
+        document.getElementById("don1").innerHTML = "DON'T consume caffeine and alcohol.";
+        document.getElementById("don2").innerHTML = "DON'T perform work involving repetitive motion or vibration.";
+        document.getElementById("don3").innerHTML = "DON'T risk the condition of Raynaud's by smoking.";
+        document.getElementById("p1").innerHTML = "Cardivas 3.125mg Tablet 10'S";
+        document.getElementById("p2").innerHTML = "Amlokind 5mg Tablet 10'S";
+        document.getElementById("p3").innerHTML = "Carca 3.125mg Tablet 15'S";
+        document.getElementById("p1").href = "https://www.netmeds.com/prescriptions/cardivas-3-125mg-tablet-10-s";
+        document.getElementById("p2").href = "https://www.netmeds.com/prescriptions/amlokind-5mg-tablet-10-s";
+        document.getElementById("p3").href = "https://www.netmeds.com/prescriptions/carca-3-125mg-tablet-15-s";
+      }
+      else if (cl == "Acne On Forehead") {
+        document.getElementById("do1").innerHTML = "DO use a mild non-abrasive cleanser. Wash your face with a mild cleanser, such as Cetaphil, and warm water once or twice a day—especially after you work out or have been sweating.";
+        document.getElementById("do2").innerHTML = "DO watch your sun exposure. You may have also believed at one time or another that getting out in the sun can help dry up your acne.";
+        document.getElementById("do3").innerHTML = "DO watch what you eat and drink. Make sure your staying hydrated by drinking plenty of water throughout the day and stick to a balanced diet rich in lean proteins, fruits and vegetables.";
+        document.getElementById("don1").innerHTML = "DON'T overdo face washing. It may seem intuitive that washing your face more can help get rid of those pesky zits and blackheads, but you may just make things worse.";
+        document.getElementById("don2").innerHTML = "DON'T be cruel to your skin. A gentle approach to skincare is generally preferred for most as opposed to harsher, exfoliating products that can cause more skin irritation";
+        document.getElementById("don3").innerHTML = "DON'T cover or conceal acne with cosmetics. If you prefer to wear makeup, consider a mineral makeup, preferably a powder, and remember to wash your makeup brushes and sponges regularly to prevent oil and bacteria from building up.";
+        document.getElementById("p1").innerHTML = "Naturals Skin Potion Anti Acne Skincare Face Oil";
+        document.getElementById("p2").innerHTML = "Acne Spot Corrector Gel";
+        document.getElementById("p3").innerHTML = "ANTI-ACNE FACE MIST";
+        document.getElementById("p1").href = "https://www.nykaa.com/nykaa-skin-potion-facial-oil/p/688909?productId=688909&skuId=688904&pps=2";
+        document.getElementById("p2").href = "https://foxtale.in/products/acne-spot-corrector-gel?utm_source=google&utm_medium=cpc&utm_campaign=HFM_Search_AcneGel_16thAug&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzSfA7TFpvJim73RlHjPYNasTchsTdoiFYfsXLESZbg3zgaEBKKcpgaAhXaEALw_wcB";
+        document.getElementById("p3").href = "https://lovechild.in/products/face-on-zap-that-zit-anti-acne-face-mist?variant=42989579763955&gclid=Cj0KCQiAg_KbBhDLARIsANx7wAzWrMhdmtqEFaGeXmNvoMY1Pi6l6ArOXrVjufdoFwElTCyeXUK8zNIaAvE4EALw_wcB";
+      }
+      else if (cl == "Actinic Cheilitis") {
+        document.getElementById("do1").innerHTML = "DO take breaks from the sun when possible.";
+        document.getElementById("do2").innerHTML = "DO use lip balm with an SPF of at least 15. Put it on before you go into the sun, and reapply it often.";
+        document.getElementById("do3").innerHTML = " DO wear a hat with a wide brim that shades your face.";
+        document.getElementById("don1").innerHTML = "DON'T lick your lips to often. Try keeping it mild dry and wet.";
+        document.getElementById("don2").innerHTML = "DON'T be outside in midday, when the sun is strongest.";
+        document.getElementById("don3").innerHTML = "DON'T bite pores of lips to worsen it.";
+        document.getElementById("p1").innerHTML = "Blistex, Medicated Lip Ointment";
+        document.getElementById("p2").innerHTML = "Sebamed Lip Defense Triple Protection SPF 30";
+        document.getElementById("p3").innerHTML = "LIP BUTTER - SHEA/OLIVE";
+        document.getElementById("p1").href = "https://in.iherb.com/pr/blistex-medicated-lip-ointment-21-oz-6-g/44053?gclid=CjwKCAiApvebBhAvEiwAe7mHSMddqd9UO2XMe2BikCuzkY-4XvBoZa_iYa6OEwiePMiNM1USyjOmLRoCRf8QAvD_BwE&gclsrc=aw.ds";
+        document.getElementById("p2").href = "https://www.clinikally.com/products/sebamed-lip-defense-spf30?variant=42852339450103&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_campaign=gs-2021-06-16&utm_source=google&utm_medium=smart_campaign&gclid=CjwKCAiApvebBhAvEiwAe7mHSC5Y0NwM-_U9InCdwcCHtsPO8JbuTz3xWlCnTka5JlW3ZaaOvf7R2RoCk94QAvD_BwE";
+        document.getElementById("p3").href = "https://earthrhythm.com/products/lip-butter-1?currency=INR&utm_medium=cpc&utm_source=google&utm_campaign=Google%20Shopping/?utm_source=google&utm_medium=cpc&utm_campaign=&gclid=CjwKCAiApvebBhAvEiwAe7mHSHL13waS4vN-T1VHE5-3TCr7c9FDOOCMDavkV0n0Ak89amBBbt10ThoCaIgQAvD_BwE";
+
+      } else if (cl == "Basal Cell Carcinoma") {
+        document.getElementById("do1").innerHTML = "DO have a skin examination yearly, or more often if your health care provider recommends it.";
+        document.getElementById("do2").innerHTML = "DO call your health care provider if you have a new mole or abnormal skin area, an area that doesn't heal or that bleeds often, a raised skin mole with a central depressed area, a mole that changes shape or color or that has irregular or unclear borders, or a mole that is asymmetric.";
+        document.getElementById("do3").innerHTML = "DO wear sunscreen with a sun protection factor (SPF) of 15 or higher, protective clothing, and hats.";
+        document.getElementById("don1").innerHTML = "DON'T go in the sun when it's hottest, especially from 11 am to 3 pm during summer days.";
+        document.getElementById("don2").innerHTML = "DON'T delay seeing your health care provider if you have any warning signs of skin cancer.";
+        document.getElementById("don3").innerHTML = "DON'T keep yourself exposed to uv sunlight";
+        document.getElementById("p1").innerHTML = "Fluorouracil topical (Under Prescription).";
+        document.getElementById("p2").innerHTML = "Odomzo (Under Prescription).";
+        document.getElementById("p3").innerHTML = "Vismodegib (Under Prescription).";
+        document.getElementById("p1").href = "https://www.drugs.com/mtm/fluorouracil-topical.html";
+        document.getElementById("p3").href = "https://www.drugs.com/mtm/vismodegib.html";
+        document.getElementById("p2").href = "https://www.drugs.com/odomzo.html";
+
+      } else if (cl == "Alopecia Areata") {
+        document.getElementById("do1").innerHTML = "DO Make sure your diet contains an adequate amount of nutrients especially iron and protein.";
+        document.getElementById("do2").innerHTML = "DO A lukewarm oil massage using oils like coconut, almond, and castor will boost scalp circulation and tightening of hair follicles.";
+        document.getElementById("do3").innerHTML = " DO A mild shampoo is enough to cleanse the scalp and get rid of natural sebum secretion and environmental pollution.";
+        document.getElementById("don1").innerHTML = "DON'T use products with a high sulphur content and artificial scents Organic shampoos.";
+        document.getElementById("don2").innerHTML = "DON'T use heating products on wet hair. Doing this can really damage your hair.";
+        document.getElementById("don3").innerHTML = "DON'T perform excess blow drying, heated combs, hair straightener, colouring products, bleaching agents, perms, and relaxers can dry out the hair strands to the core.";
+        document.getElementById("p1").innerHTML = "Traya Complete Hair Growth Kit";
+        document.getElementById("p2").innerHTML = "Biotin Hair Gummies";
+        document.getElementById("p3").innerHTML = "Chemical-free hair and scalp cleanser shampoo";
+        document.getElementById("p1").href = "https://traya.health/products/complete-hair-growth-kit?kw=&campaignid=17173158462&adgroupid=&adid=&gclid=CjwKCAiApvebBhAvEiwAe7mHSMjtUeDjtmKDsPIXsEocQcZIPhsSARpna0EGzLWFWXqUbjNua4onKhoCONoQAvD_BwE";
+        document.getElementById("p2").href = "https://manmatters.com/dp/p-biotin-hair-gummies-30-n/1605?utm_source=google&utm_medium=PLA&utm_campaign=Shopping_Manual_MM_HairGummies30_product_hair_gummies_30&gclid=CjwKCAiApvebBhAvEiwAe7mHSDk2-7K56_qWddKkRdqD3h6g0g69WnhV96zNnHahpKJpuJHagDb5kRoCCyEQAvD_BwE";
+        document.getElementById("p3").href = "https://traya.health/products/shampoo?variant=37546042785970&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&kw=&campaignid=17173158462&adgroupid=&adid=&gclid=CjwKCAiApvebBhAvEiwAe7mHSNmDtdUPyu7TvwkGQ-Pg3eojXkMNR2y2m7q1fxKLXiwL4qt3p6lVAhoCsLIQAvD_BwE";
+
+      } else if (cl == "Nail Fungal") {
+        document.getElementById("do1").innerHTML = "DO wash hands and feet regularly and dry them thoroughly.";
+        document.getElementById("do2").innerHTML = "DO wear rubber gloves when dealing with food, water, dirt, oil and chemicals, etc.";
+        document.getElementById("do3").innerHTML = " DO treat a nail fungus infection as early as possible to avoid more serious problems or permanent damage to the nails.";
+        document.getElementById("don1").innerHTML = "DON'T walk barefoot in public areas.";
+        document.getElementById("don2").innerHTML = "DON'T nail apply polish or artificial nails at first sight of a possible nail fungal infection.";
+        document.getElementById("don3").innerHTML = "DON'T choose salons that share tools and only use sterilized tools for manicures or pedicures.";
+        document.getElementById("p1").innerHTML = "Bella Voste Nail Care Antiseptic Drops";
+        document.getElementById("p2").innerHTML = "Neem Oil Cold Pressed Anti Fungal";
+        document.getElementById("p3").innerHTML = "Fungus Fighter Compound";
+        document.getElementById("p1").href = "https://www.netmeds.com/non-prescriptions/bella-voste-nail-care-antiseptic-drops-10-ml?source_attribution=ADW-CPC-Pmax_beauty_purchase&utm_source=ADW-CPC-Pmax_beauty_purchase&utm_medium=CPC&utm_campaign=ADW-CPC-Pmax_beauty_purchase&gclid=CjwKCAiApvebBhAvEiwAe7mHSL81yfxSNT80u4GXcxwL7puPf_J4AO63UZPdwnPbrZh58d3ZNX1WTxoCm7IQAvD_BwE";
+        document.getElementById("p2").href = "https://amala.earth/products/atulya-neem-coldpress-oil-200-ml-at-0018-19722?utm_source=Google_ads&utm_medium=&utm_campaign=18739464851--142928717956&utm_content=631455068525&utm_term=--&utm_id=18739464851--142928717956--631455068525--c--g------&gclid=CjwKCAiApvebBhAvEiwAe7mHSHdnmXiU8DM9gk6DB9rwCRIRTN1FtvY7sZ1BLFG0Eo8zxYYQ_iUmchoCdmAQAvD_BwE";
+        document.getElementById("p3").href = "https://www.luckyvitamin.com/p-419730-herb-pharm-fungus-fighter-compound-4-oz";
+
+      } else if (cl == "Psoriasis Hair") {
+        document.getElementById("do1").innerHTML = "DO investigate symptoms. Even though half of psoriasis";
+        document.getElementById("do2").innerHTML = "DO use shampoos that contain tar or salicylic acid. Tar has proven effective as a treatment for psoriasis for decades";
+        document.getElementById("do3").innerHTML = " DO use natural products. The best natural products for your hair and scalp are usually the ingredients you can also ingest.";
+        document.getElementById("don1").innerHTML = "DON'T use harmful chemicals. While you may not necessarily be using relaxers or perms, you might still be using chemicals that are too harsh on your scalp.";
+        document.getElementById("don2").innerHTML = "DON'T use hot water. Like the rest of your body, the scalp can be negatively affected by hot water.";
+        document.getElementById("don3").innerHTML = "DON'T be afraid to speak up about symptoms and treatment options";
+        document.getElementById("p1").innerHTML = "Traya Complete Hair Growth Kit";
+        document.getElementById("p2").innerHTML = "Biotin Hair Gummies";
+        document.getElementById("p3").innerHTML = "Chemical-free hair and scalp cleanser shampoo";
+        document.getElementById("p1").href = "https://traya.health/products/complete-hair-growth-kit?kw=&campaignid=17173158462&adgroupid=&adid=&gclid=CjwKCAiApvebBhAvEiwAe7mHSMjtUeDjtmKDsPIXsEocQcZIPhsSARpna0EGzLWFWXqUbjNua4onKhoCONoQAvD_BwE";
+        document.getElementById("p2").href = "https://manmatters.com/dp/p-biotin-hair-gummies-30-n/1605?utm_source=google&utm_medium=PLA&utm_campaign=Shopping_Manual_MM_HairGummies30_product_hair_gummies_30&gclid=CjwKCAiApvebBhAvEiwAe7mHSDk2-7K56_qWddKkRdqD3h6g0g69WnhV96zNnHahpKJpuJHagDb5kRoCCyEQAvD_BwE";
+        document.getElementById("p3").href = "https://traya.health/products/shampoo?variant=37546042785970&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&kw=&campaignid=17173158462&adgroupid=&adid=&gclid=CjwKCAiApvebBhAvEiwAe7mHSNmDtdUPyu7TvwkGQ-Pg3eojXkMNR2y2m7q1fxKLXiwL4qt3p6lVAhoCsLIQAvD_BwE";
+
+      } else if (cl == "Warts Molluscum") {
+        document.getElementById("do1").innerHTML = "DO wash your hands. There are ways to prevent the spread of molluscum.";
+        document.getElementById("do2").innerHTML = "DO keep molluscum lesions covered, so that others do not touch the lesions and become infected.";
+        document.getElementById("do3").innerHTML = "DO clothing or bandage on the sport of its existance.";
+        document.getElementById("don1").innerHTML = "DON'T share towels, clothing, or other personal items.";
+        document.getElementById("don2").innerHTML = "DON'T share towels, clothing, or other personal items.";
+        document.getElementById("don3").innerHTML = "DON'T share personal items such as unwashed clothes, hair brushes, wrist watches, and bar soap with others.";
+        document.getElementById("p1").innerHTML = "E-Warts Drops";
+        document.getElementById("p2").innerHTML = "Urban ReLeaf Molluscum Vanishing Stick";
+        document.getElementById("p3").innerHTML = "Anti Wart & Dark Spots Facial Oil";
+        document.getElementById("p1").href = "https://www.excelpharma.co.in/product/e-warts-drops-homeopathic-wart-treatment/?gclid=CjwKCAiApvebBhAvEiwAe7mHSOkp0xjG7iCIo1pu9F7fXXzP2p1sd8fUIHNAPK7OHOR8eUG7VTAGIxoCG_sQAvD_BwE";
+        document.getElementById("p2").href = "https://www.getuscart.com/urban-releaf-molluscum-vanishing-stick-fast-painless-help-for-molluscum-verrucas-warts-skin-tags-100-natural-salve-topical-cream-safe-for-kids-delicate-areasgoodbye-itchy-red-bumps?gclid=CjwKCAiApvebBhAvEiwAe7mHSDAlfxWk12v6lmC8joCcx40MZjNee9unGS7NfHsktdAIlrtJddzxEBoCctcQAvD_BwE";
+        document.getElementById("p3").href = "https://brownliving.in/products/anti-wart-dark-spots-facial-oil?variant=32075452022864&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=CjwKCAiApvebBhAvEiwAe7mHSPTPSSuf_a9VkPE-yusqYj6zh9Iz4LQ_o4CYH_VNpna1mi0FaAfwKRoC8TkQAvD_BwE";
+
+      } else if (cl == "Skin Cancer") {
+        document.getElementById("do1").innerHTML = "DO seek support from friends, family, support groups, mental health professionals and others to help you cope with your diagnosis and treatment.";
+        document.getElementById("do2").innerHTML = "DO educate yourself on the wide range of resources, medical navigational assistance and related support resources and services available through the Robins Nest program.";
+        document.getElementById("do3").innerHTML = "DO inform all members of your health-care team about your skin cancer diagnosis and any proposed treatment. ";
+        document.getElementById("don1").innerHTML = "DON'T hesitate to speak up if you are unclear or have questions for your doctor or any other health care team member.  ";
+        document.getElementById("don2").innerHTML = "DON'T rush a treatment decision. Take the time to educate yourself about treatment options and the pros and cons of each. ";
+        document.getElementById("don3").innerHTML = "DON'T hesitate to seek a second opinion if you are uncertain about your diagnosis or proposed treatment.";
+        document.getElementById("p1").innerHTML = "Government Cancer Treatment Drug";
+        document.getElementById("p2").innerHTML = "Fluorouracil topical (Under Prescription).";
+        document.getElementById("p3").innerHTML = "Odomzo (Under Prescription).";
+        document.getElementById("p1").href = "https://www.cancer.gov/about-cancer/treatment/drugs/skin";
+        document.getElementById("p2").href = "https://www.drugs.com/mtm/fluorouracil-topical.html";
+        document.getElementById("p3").href = "https://www.drugs.com/odomzo.html";
+
+      } else if (cl == "Tinea Ringworm Candidiasis") {
+        document.getElementById("do1").innerHTML = "DO use antifungal dusting powders for your skin folds such as underarms, thigh folds, below breasts, and between the toes.";
+        document.getElementById("do2").innerHTML = "DO check your blood sugar level frequently and make sure your blood sugars are within the normal range because uncontrolled blood sugar is a risk factor for fungal infection.";
+        document.getElementById("do3").innerHTML = "DO eat healthy food, keep your body weight ideal for your height because being overweight or underweight leads to reduced immunity which increases the chances of acquiring a fungal infection.";
+        document.getElementById("don1").innerHTML = "DON'T scratch. Scratching makes the rash worse. Ask your dermatologist to prescribe anti-itching medicine.";
+        document.getElementById("don2").innerHTML = "DON'T wear synthetic clothes, tight-fitting jeans that do not allow air to flow through them, and wet inner clothes.";
+        document.getElementById("don3").innerHTML = "DON'T use home remedies such as garlic paste to get rid of ringworm. This could burn your skin and leave a permanent scar.";
+        document.getElementById("p1").innerHTML = "Tetmosol Antifungal Powder";
+        document.getElementById("p2").innerHTML = "Clotrimazole Intimate Powder";
+        document.getElementById("p3").innerHTML = "Terrasil Tinea Anti Fungal Cleansing Bar";
+        document.getElementById("p1").href = "https://wellify.in/products/tetomosol-antifungal-dusting-powder?variant=40486037553343&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_source=GooglePMax&utm_campaign=FE_02_PerformanceMax_HealthandWellness_India_Wellify_PanIndia&utm_medium=FE&utm_content=shopify_IN_6899291259071_40486037553343__&utm_term=FE_02_AG_All&gclid=CjwKCAiAyfybBhBKEiwAgtB7fquLKptn-Aq5G8x5agHwtSr9SfXtl3Fn3TdmwXIhylzXdJ-qH-20NRoCtOMQAvD_BwE";
+        document.getElementById("p2").href = "https://manmatters.com/dp/p-clotrimazole-intimate-powder-100-g/5516756?utm_source=Google&utm_medium=PLA&utm_campaign=Shopping_Manual_MM_Low_Catch_All_product_5516756&gclid=CjwKCAiAyfybBhBKEiwAgtB7fnOHLu1xalAc4-91jiypkYxql-fB-LpK0Wr-r76S5IZX2rcUWa4ICRoCVEAQAvD_BwE";
+        document.getElementById("p3").href = "https://in.iherb.com/pr/terrasil-tinea-anti-fungal-cleansing-bar-75-g/111808?gclid=CjwKCAiAyfybBhBKEiwAgtB7fiNC39He-kMG_JM4RfgZowm6xdHR238nYyBMXXa9VTedSh7eF9dwSRoCKYIQAvD_BwE&gclsrc=aw.ds";
+
+      } else if (cl == "Scabies") {
+        document.getElementById("do1").innerHTML = "DO apply the ointment prescribed by the doctor.";
+        document.getElementById("do2").innerHTML = "DO regularly wash your garments, bed sheets and towel.";
+        document.getElementById("do3").innerHTML = "DO maintain cleanliness in your surrounding";
+        document.getElementById("don1").innerHTML = "DON'T touch kids or their things with infected hands.";
+        document.getElementById("don2").innerHTML = "DON'T share your clothes, towel, blankets etc.";
+        document.getElementById("don3").innerHTML = "DON'T be embarrassed to visit a dermatologist.";
+        document.getElementById("p1").innerHTML = "Himosis Fore Stretch Cream For Loosening Tight Skin";
+        document.getElementById("p2").innerHTML = "Soreze Adult Diaper Rash";
+        document.getElementById("p3").innerHTML = "AnoSpray The Advanced Piles Care and Fissure Care Spray";
+        document.getElementById("p1").href = "https://vajraang.com/product/phimosis-fore-stretch-cream-for-loosening-tight-foreskin/?gclid=CjwKCAiAyfybBhBKEiwAgtB7fuU_YSuLM21KGNlpzkOUpaoAP8O2YsRFsrYXOECRPGpVK_JNCCdNKBoChGgQAvD_BwE";
+        document.getElementById("p2").href = "https://www.sorezecare.com/products/soreze-adult-diaper-rash-gel-30g-best-for-treatment-and-prevention-of-adult-diaper-rashes?utm_source=Google&utm_medium=CPC&utm_campaign=ADRG-Shopping-CNV-14%2F10%2F2021-SYP&utm_id=14947856053&gclid=CjwKCAiAyfybBhBKEiwAgtB7fqh8KfZLBLKVbEU1ClaSDdghxsbp8ntJ6M7ysWOpOVdIFbCDohMR3RoCefsQAvD_BwE";
+        document.getElementById("p3").href = "https://pilospray.com/product/anospray-pack-of-1/?gclid=CjwKCAiAyfybBhBKEiwAgtB7frW7tZemdW5oIXaFcl8QkIPMVrdLZ9XauoWcVRCh7o1F7OsHH94G3xoCaL4QAvD_BwE";
+
+      } else if (cl == "Nose Rosacea") {
+        document.getElementById("do1").innerHTML = "DO protect your face from wind and cold. Covering your face with a scarf helps protect your skin.";
+        document.getElementById("do2").innerHTML = "DO apply a sunscreen before going outside since sun exposure can cause rosacea to flare.";
+        document.getElementById("do3").innerHTML = "DO take good care of your skin. Avoid rubbing, scrubbing, or massaging the face.";
+        document.getElementById("don1").innerHTML = "DON'T overheat. Extremely hot temperatures often aggravate rosacea.";
+        document.getElementById("don2").innerHTML = "DON'T consume too much caffeine, red wine, spicy foods, and hot beverages. For many folks, these foods and drinks can cause rosacea flare-ups.";
+        document.getElementById("don3").innerHTML = "DON'T wear wool scarfs or those made of rough fabrics that tend to irritate the neck and face.";
+        document.getElementById("p1").innerHTML = "Skin Smoothing Cream Moisturiser";
+        document.getElementById("p2").innerHTML = "INSTANT ANTI-REDNESS CREAM";
+        document.getElementById("p3").innerHTML = "Sensitive Skin Squad";
+        document.getElementById("p1").href = "https://dermalogica.in/products/skin-smoothing-cream-face-moisturiser?variant=39557443420237&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=CjwKCAiAyfybBhBKEiwAgtB7fisd7VxaPe7315GYgxhXtA2gfLNqqeCxjaQSwucPc5q581fteEi9CxoCowMQAvD_BwE";
+        document.getElementById("p2").href = "https://marycohr.co.in/products/instant-anti-redness-cream?variant=31465054765118&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=CjwKCAiAyfybBhBKEiwAgtB7fq9JcC408vtpKUioJW2nZ9CeyPtv5Sd72Diszj4vCFcDbzh-2gwxhxoCIlwQAvD_BwE";
+        document.getElementById("p3").href = "https://foxtale.in/products/sensitive-skin-squad?variant=43236776739063&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=CjwKCAiAyfybBhBKEiwAgtB7fpGjmW92nGTDJrOr6DQ-_U0HTAjo1o37mV0JSt_Ow83FKEvEXe-U2RoCVU8QAvD_BwE";
+
+      } else if (cl == "Seborrheic Keratoses") {
+        document.getElementById("do1").innerHTML = "DO freezing on growth with liquid nitrogen. Which can be an effective way to remove a seborrheic keratosis.";
+        document.getElementById("do2").innerHTML = "DO scraping or shaving the skin's surface. First your doctor will numb the area and then use a scalpel blade to remove the growth.";
+        document.getElementById("do3").innerHTML = "DO burning with an electric current. First your doctor will numb the area and then destroy the growth with electrocautery.";
+        document.getElementById("don1").innerHTML = "DON'T overheat. Extremely hot temperatures often aggravate Seborrheic Keratoses";
+        document.getElementById("don2").innerHTML = "DON'T be embarrassed to visit a dermatologist.";
+        document.getElementById("don3").innerHTML = "DON'T scratch. Scratching makes the rash worse. Ask your dermatologist to prescribe anti-itching medicine.";
+        document.getElementById("p1").innerHTML = "SkinEasi® Activ Silicone Anti-Chafing Gel";
+        document.getElementById("p2").innerHTML = "Pilgrim PHA Peeling Solution";
+        document.getElementById("p3").innerHTML = "Vensore Topical Anti-Infective Ointment";
+        document.getElementById("p1").href = "https://www.skineasi.com/products/skineasi-activ-silicone-anti-chafing-gel?gclid=CjwKCAiAyfybBhBKEiwAgtB7fvuSp9-5NQZ473vestgGbJH0RNM5BvVoqR7hCdgTCaRSYPvgpFk8DhoCFuQQAvD_BwE&utm_campaign=shopping&utm_medium=cpc&utm_source=google";
+        document.getElementById("p2").href = "https://www.skineasi.com/products/skineasi-activ-silicone-anti-chafing-gel?gclid=CjwKCAiAyfybBhBKEiwAgtB7fvuSp9-5NQZ473vestgGbJH0RNM5BvVoqR7hCdgTCaRSYPvgpFk8DhoCFuQQAvD_BwE&utm_campaign=shopping&utm_medium=cpc&utm_source=google";
+        document.getElementById("p3").href = "https://www.netmeds.com/non-prescriptions/vensore-topical-anti-infective-ointment-20-gm?source_attribution=ADW-CPC-Pmax_pharma-PY-Netmeds_Vib_PMax_FP&utm_source=ADW-CPC-Pmax_pharma-PY-Netmeds_Vib_PMax_FP&utm_medium=CPC&utm_campaign=ADW-CPC-Pmax_pharma-PY-Netmeds_Vib_PMax_FP&gclid=CjwKCAiAyfybBhBKEiwAgtB7fqEI3_zR6rEBfHF15t4PybJ97Vh1uyy4bUvbQSyujfC09rXv4vR7CxoCgNYQAvD_BwE";
+      } else {
+        alert("NO DISEASE FOUND");
+      }
+    } 
+  </script>
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <span class="mb-3 mb-md-0" style="color: #6f1ad0;">© 2022 Company, Inc</span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a href="https://www.instagram.com/useskeez/" target="_blank"
+            style="color: #6f1ad0;text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+              <path
+                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+            </svg></a></li>
+        <li class="ms-3"><a href="" target="_blank" style="color: #6f1ad0;text-decoration: none;"><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter"
+              viewBox="0 0 16 16">
+              <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+            </svg></a></li>
+        <li class="ms-3"><a href="mailto:mdazeezulla2020@gmail.com" style="color: #6f1ad0;text-decoration: none;"><svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope"
+              viewBox="0 0 16 16">
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+            </svg></a></li>
+      </ul>
+    </footer>
+  </div>
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+      -->
+</body>
+
 </html>
-        
