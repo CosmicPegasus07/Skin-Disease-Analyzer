@@ -68,6 +68,17 @@
             style="background-color: #c5a38b; color: white;height: 50px;width: 150px;">Result</button>
      </div>
     </form>
+    <script>
+      const image_input = document.querySelector("#image-input");
+      image_input.addEventListener("change", function() {
+           const reader = new FileReader();
+             reader.addEventListener("load", () => {
+                     const uploaded_image = reader.result;
+                     document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+                   });
+                     reader.readAsDataURL(this.files[0]);
+                     });
+     </script>
     <button id="start-camera">Start Camera</button>
     <video id="video" width="320" height="240" autoplay></video>
     <a id="download" download="new.png">
