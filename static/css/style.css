@@ -337,7 +337,7 @@ menu_text {
     width: 100%;
     float: left;
     font-size: 60px;
-    color: #9a7e6a;
+    color: #c5a38b;
     font-weight: bold;
     line-height: 50px;
     padding-top: 30px;
@@ -362,7 +362,7 @@ menu_text {
     float: left;
     font-size: 16px;
     color: #ffffff;
-    background-color: #9a7e6a;
+    background-color: #c5a38b;
     text-align: center;
     padding: 10px 0px;
     border-radius: 40px;
@@ -402,7 +402,7 @@ menu_text {
 #my_slider .carousel-control-next:hover,
 #my_slider .carousel-control-prev:focus,
 #my_slider .carousel-control-next:focus {
-    background: #9a7e6a;
+    background: #c5a38b;
     color: #ffffff;
 }
 
@@ -420,7 +420,7 @@ menu_text {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #9a7e6a;
+    color: #c5a38b;
     font-weight: bold;
     text-align: center;
 }
@@ -429,7 +429,7 @@ menu_text {
     width: 80%;
     margin: 0 auto;
     font-size: 16px;
-    color: #9a7e6a;
+    color: #c5a38b;
     text-align: center;
 }
 
@@ -441,14 +441,14 @@ menu_text {
 .hands_text {
     width: 61%;
     font-size: 23px;
-    color: #9a7e6a;
+    color: #c5a38b;
     text-align: center;
     font-weight: bold;
     padding-top: 40px;
 }
 
 .hands_text a{
-    color: #9a7e6a;
+    color: #c5a38b;
 }
 
 .hands_text a:hover{
@@ -462,7 +462,7 @@ menu_text {
     height: 2px;
     left: initial;
     right: -210px;
-    border: 1px solid #9a7e6a;
+    border: 1px solid #c5a38b;
 }
 .hands_text{
     animation: slideleft 2s linear forwards;
@@ -495,7 +495,7 @@ menu_text {
     float: left;
     font-size: 40px;
     font-weight: bold;
-    color: #9a7e6a;
+    color: #c5a38b;
     padding-top: 30px;
 }
 
@@ -503,7 +503,7 @@ menu_text {
     width: 80%;
     float: left;
     font-size: 16px;
-    color: #9a7e6a;
+    color: #c5a38b;
     margin: 0px;
 }
 
@@ -518,7 +518,7 @@ menu_text {
     float: left;
     font-size: 16px;
     color: #ffffff;
-    background-color: #9a7e6a;
+    background-color: #c5a38b;
     text-align: center;
     padding: 10px 0px;
     border-radius: 40px;
@@ -585,7 +585,7 @@ menu_text {
     width: 100%;
     float: left;
     font-size: 40px;
-    color: #9a7e6a;
+    color: #c5a38b;
     text-align: center;
     font-weight: bold;
 }
@@ -594,7 +594,7 @@ menu_text {
     width: 60%;
     margin: 0 auto; 
     font-size: 16px;
-    color: #9a7e6a;
+    color: #c5a38b;
     text-align: center;
 }
 
@@ -624,7 +624,7 @@ menu_text {
 .lorem_text {
     width: 100%;
     font-size: 16px;
-    color: #9a7e6a;
+    color: #c5a38b;
     text-align: center;
     margin: 0 auto;
 }
@@ -644,7 +644,7 @@ menu_text {
     float: left;
     font-size: 16px;
     color: #ffffff;
-    background-color: #9a7e6a;
+    background-color: #c5a38b;
     text-align: center;
     padding: 10px 0px;
     border-radius: 30px;
@@ -659,7 +659,7 @@ menu_text {
     width: 100%;
     font-size: 24px;
     font-weight: bold;
-    color: #9a7e6a;
+    color: #c5a38b;
     text-align: center;
     padding-top: 20px;
 }
@@ -677,7 +677,7 @@ menu_text {
     left: 0px;
     right: -60px;
     top: 105%;
-    background: #9a7e6a;
+    background: #c5a38b;
     color: #ffffff;
 }
 
@@ -698,7 +698,7 @@ menu_text {
 #main_slider .carousel-control-next:hover,
 #main_slider .carousel-control-prev:focus,
 #main_slider .carousel-control-next:focus {
-    background: #9a7e6a;
+    background: #c5a38b;
     color: #ffffff;
 }
 
@@ -716,7 +716,7 @@ menu_text {
 .update_taital{
     width: 100%;
     font-size: 40px;
-    color: #9a7e6a;
+    color: #c5a38b;
     text-align: center;
     font-weight: bold;
 }
@@ -730,7 +730,7 @@ menu_text {
 .footer_section {
     width: 100%;
     float: left;
-    background-color: #9a7e6a;
+    background-color: #c5a38b;
     padding: 30px 0px 100px 0px;
 }
 
@@ -791,7 +791,7 @@ nav ul li{
 }
 nav ul li a{
     text-decoration: none;
-    color: #9a7e6a;
+    color: #c5a38b;
     font-weight: bold;
 }
 nav:hover{
