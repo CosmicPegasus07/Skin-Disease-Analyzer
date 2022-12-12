@@ -79,11 +79,16 @@
                      reader.readAsDataURL(this.files[0]);
                      });
      </script>
-    <button id="start-camera">Start Camera</button>
+     <center>    <button id="start-camera">Start Camera</button>
+      <br>
+     
     <video id="video" width="320" height="240" autoplay></video>
     <a id="download" download="new.png">
+      <br>
     <button id="click-photo" onclick="download();">Click Photo</button></a>
+    <br>
     <canvas id="canvas" width="320" height="240"></canvas>
+   </center>
     <script>
       let camera_button = document.querySelector("#start-camera");
       let video = document.querySelector("#video");
